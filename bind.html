@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>button clicked</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = "react"
+            this.server = "https://localhost:300"
+
+            //requirement
+            // for this scenario we have to use bind
+            //it sends the this of this constructor including the this of the button
+            // all the functions defined in react have now been given access to the handle click
+            document.querySelector('button')
+            .addEventListener('click',this.handleClick.bind(this))
+        }
+       
+        handleClick(){
+            console.log("button clicked")
+            console.log(this.server);
+        }
+    }
+    const app = new React()
+</script>
+</html>

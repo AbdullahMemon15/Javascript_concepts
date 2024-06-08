@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: white">
+    0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+</body>
+<script>
+
+    // what is api
+    //communication between frontend and backend
+    //on=bject with value
+    //radnom user.me
+    // api is difficult to read
+    //website json formatter
+    //xml
+    //ready state 
+    //  o  unsent
+    //1 opened
+    //2 headers_recieved
+    //3 loading
+    //4 done
+    //asssignment at 23 minutes homework
+
+
+
+
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest()
+    xhr.open("GET",requestUrl)
+    //onready state continously monitors things, subscribers , firebase ex
+
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        //detect the change in state
+        if(xhr.readyState === 4){
+            //this is used in current context
+            
+            console.log(this.responseText);
+            // const data  = this.responseText;
+            const data  = JSON.parse(this.responseText);
+            //parse converts stringf into json.
+            //now its an object
+            console.log(typeof data); // dara is string
+
+            console.log(data.followers);
+        }
+    }
+
+    //called when we use send, doesnot send on its own
+    // console.log("here");
+    // console.log(xhr.readyState); //prints 1
+    xhr.send()
+
+    //console.log is not part of jaavscript, its a dev tool api , at run time it is injected
+    //v8 
+    //js run on runtime
+    //nodejs is an implementation of v8  engine , written in c++
+    //core language is c++ and other languages are wrappers
+    //v8/v8/src/d8/db-conosole.cc  (not imp)
+
+    //404 error
+
+</script>
+</html>
