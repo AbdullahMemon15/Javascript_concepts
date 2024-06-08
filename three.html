@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chai aur Code</title>
 </head>
-<body>
-    <h1>chai aur js</h1>
-    <button id="start">start</button>
-    <button id="stop">stop</button>
+<body style="background-color: #212121; color: white">
+    <script>
+        const div = document.createElement('div')
+        console.log(div);
+        //every element is a nodelist with all the values from aria label etc but its values are not set(null)
+        div.className = "main";
+        div.id = "myID";
+        div.id = Math.round(Math.random()*10+1)
+        div.setAttribute("title","generated title")
+        div.style.backgroundColor = "green"
+        div.style.padding = "12px"
+        //how to add the div from memory to the page
+        // div.innerHTML = "chai aur code" //this takes the value and then overrides it, however the setAttribute changes/sets the value
+        //developer prefer setting the value in one go like set attribute. BETTER TO USE CREATE Text node than innerHtml
+        const addText = document.createTextNode("chai aur code") //creating a text node 
+        div.appendChild(addText) // attaching the text node
+        // real world dsa which one is more optimized , both are correct.
+        document.body.appendChild(div) // add the div to the body of the document.
+        
+    </script>
+    
 </body>
-<script>
-
-const sayDate = function(str){
-    console.log(str, Date.now());
-}
-const toStart = function(){
-    intervalId = setInterval(sayDate, 1000, "hi");
-}
-const toStop = function(){
-    clearInterval(intervalId);
-}
-document.querySelector('#start').addEventListener('click', toStart);
-document.querySelector('#stop').addEventListener('click', toStop);
-
-    // const intervalId =  setInterval(sayDate,1000,"hi")
-    // clearInterval(intervalId)
-</script>
 </html>

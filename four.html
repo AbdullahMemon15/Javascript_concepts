@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai aur code</title>
+</head>
+<body style="background-color: #212121; color: white">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguages(langName) {
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguages("python")
+    addLanguages("java")
+    //optimized because we dont have to traverse the tree, in comparison to using inner html where we have to traverse the tree which could be a problem in longer projects
+    function addOptiLanguages(langName) {
+        const li = document.createElement("li")
+        li.appendChild(document.createTextNode(langName)) //optimized
+        document.querySelector('.language').appendChild(li)
+    }
+    // Note : apendchild is better than innerHTML
+
+    addOptiLanguages("c#")
+    addOptiLanguages("goLang")
+    //edit of these values
+    // how to select?
+    const secondLanguage =  document.querySelector("li:nth-child(2)") //nth child second value just like css
+    // secondLanguage.innerHTML = "Mojo" //less optimized we can use it in smaller projects
+     const newLi = document.createElement('li')
+     newLi.textContent = "miju"
+     secondLanguage.replaceWith(newLi)
+    // note innerHtml maybe more optimized than text content use what your superiors may be advising. 
+
+    //edit
+    const firstLanguage = document.querySelector('li:first-child')
+    firstLanguage.outerHTML = `<li>TypeScript</li>`
+
+    //remove
+    const lastLanguage  =  document.querySelector("li:last-child")
+    lastLanguage.remove()
+    
+</script>
+</html>
